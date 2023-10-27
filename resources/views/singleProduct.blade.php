@@ -1,4 +1,4 @@
-<x-header/>
+<x-header title="single product" description="hello word" keywords="virat jaiswal,E-commerce, Best traning center,login page"/>
 
     <!-- Shop Details Section Begin -->
     <section class="shop-details">
@@ -18,25 +18,25 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}"alt="{{$product->keywords}}">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="i{{URL::asset('uploads/products/'.$product->picture)}}">
+                                    <div class="product__thumb__pic set-bg" data-setbg="i{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}">
+                                    <div class="product__thumb__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                         <i class="fa fa-play"></i>
                                     </div>
                                 </a>
@@ -47,22 +47,22 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="">
+                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="">
+                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="">
+                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-4" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="">
+                                    <img src="{{URL::asset('uploads/products/'.$product->picture)}}" alt="{{$product->keywords}}">
                                     <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a>
                                 </div>
                             </div>

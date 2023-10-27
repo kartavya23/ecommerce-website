@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>{{$title}}</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="Dashboard/vendors/feather/feather.css">
   <link rel="stylesheet" href="Dashboard/vendors/ti-icons/css/themify-icons.css">
@@ -333,7 +333,7 @@
             </a>
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">view all</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{URL::to('ourOrders')}}">view all</a></li>
               </ul>
             </div>
           </li>

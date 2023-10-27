@@ -1,4 +1,4 @@
-<x-adminheader />
+<x-adminheader  title="products"/>
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
@@ -40,6 +40,8 @@
                                              <input type="file" name="file"  class="form-control mb-2" >
                                              <label for="">description</label>
                                              <input type="text" name="description" placeholder="enter description"  class="form-control mb-2" >
+                                             <label for="">keywords</label>
+                                             <input type="text" name="keywords" placeholder="enter keywords"  class="form-control mb-2" >
                                              <label for="">category</label>
                                              <select name="category" class="form-control mb-2" id="">
                                                 <option value="">select category</option>
@@ -131,6 +133,8 @@
                                                                      <input type="file" name="file"  class="form-control mb-2" >
                                                                      <label for="">description</label>
                                                                      <input type="text" name="description" value="{{$item->description}}" placeholder="enter description"  class="form-control mb-2" >
+                                                                     <label for="">keywords</label>
+                                                                     <input type="text" name="keywords" value="{{$item->keywords}}" placeholder="enter keywords"  class="form-control mb-2" >
                                                                      <label for="">category</label>
                                                                      <select name="category" class="form-control mb-2" id="">
                                                                         <option value="{{$item->category}}"value="{{$item->category}}"></option>

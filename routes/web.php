@@ -31,6 +31,10 @@ Route::get('/adminProfile',[AdminController::class,'profile']);
 
 Route::get('/ourCustomers',[AdminController::class,'customers']);
 
+Route::get('/ourOrders',[AdminController::class,'orders']);
+
+Route::get('/changeOrderStatus/{status}/{id}',[AdminController::class,'changeOrderStatus']);
+
 Route::get('/changeUserStatus/{status}/{id}',[AdminController::class,'changeUserStatus']);
 
 Route::get('/deleteProduct/{id}',[AdminController::class,'deleteProduct']);
@@ -78,6 +82,11 @@ Route::post('/updateCart',[MainController::class,'updateCart']);
 Route::post('/updateUser',[MainController::class,'updateUser'])->name('updateUser');
 
 Route::get('/testMail',[MainController::class,'testMail']);
+
+// socialite login url
+Route::get('/googleLogin',[MainController::class,'googleLogin']);
+
+Route::get('/auth/google/callback',[MainController::class,'googleHandle']);
 
 Route::controller(StripePaymentController::class)->group(function(){
     Route::get('stripe', 'stripe');

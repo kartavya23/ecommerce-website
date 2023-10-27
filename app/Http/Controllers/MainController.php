@@ -20,13 +20,48 @@ use App\Models\Cart;
 
 use App\Mail\Testing;
 
+use Laravel\Socialite\Facades\Socialite;
+
 use Termwind\Components\Raw;
 
 
 class MainController extends Controller
 {
 
+     public function googleLogin()
+     {
+        return Socialite::driver('google')->redirect();
 
+     }
+     public function googleHandle()
+     {
+        try{
+            $user=Socialite::driver('google')->user();
+            $findUser=User::where('email',$user->email)->first();
+            if(!$findUser)
+            {
+                $findUser=new User();
+                $findUser->fullname=$user->name;
+                $findUser->email=$user->email;
+                $findUser->picture=$user->avatar;
+                $findUser->password="12345Dummy";
+                $findUser->type="Customer";
+                $findUser->status="Active";
+                $findUser->save();
+               
+              
+            }
+            session()->put('id',$findUser->id);
+            session()->put('type',$findUser->type);
+            return redirect('/');
+    
+
+        }catch(Exception $e)
+        {
+            dd($e->getMessage());
+        }
+
+     }
     public function index()
     {
         $allProducts=Product::all();
@@ -125,7 +160,7 @@ class MainController extends Controller
         $user=User::where('email',$data->input('email'))->where('password',$data->input('password'))->first();
         if($user)
         {
-            if($user->status=="blocked")
+            if(strtolower($user->status)=="blocked")
             {
                 return redirect('login')->with('error','your status is blocked.');
             }

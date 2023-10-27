@@ -1,4 +1,4 @@
-<x-header/>
+<x-header title="cart" description="hello word" keywords="virat jaiswal,E-commerce, Best traning center,login page"/>
 
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">

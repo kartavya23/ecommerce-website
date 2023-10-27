@@ -1,4 +1,4 @@
-<x-adminheader />
+<x-adminheader title="Customers" />
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">

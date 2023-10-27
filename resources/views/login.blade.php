@@ -1,4 +1,4 @@
-<x-header/>
+<x-header title="login here" description="hello word" keywords="virat jaiswal,E-commerce, Best traning center,login page"/>
 
     
 
@@ -40,6 +40,9 @@
                                 <div class="col-lg-12">
                                    
                                     <button type="submit" name="login" class="site-btn">login</button>
+                                    <a href="{{URL::to('googleLogin')}}">
+                                        <img src="{{URL::asset('googlesign.jpg')}}" height="45px" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </form>

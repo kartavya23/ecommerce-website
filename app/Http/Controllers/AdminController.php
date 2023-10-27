@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\product;
 
 use App\Models\User;
+
+use App\Models\Order;
+
+use App\Models\OrderItem;
+
 
 class AdminController extends Controller
 {
@@ -50,6 +57,24 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+    public function orders()
+    {
+        
+        if(session()->get('type')=='Admin')
+        {
+            $orderItems=DB::table('order_items')
+            ->join('products','order_items.productId','products.id')
+            ->select('products.title','products.picture','order_items.*')
+            ->get(); 
+        $orders=DB::table('users')
+       ->join('orders','orders.customerId','users.id')
+       ->select('orders.*','users.fullname','users.email','users.status as userStatus')
+       ->get();
+       
+        return view('Dashboard.orders',compact('orders','orderItems'));
+        }
+        return redirect()->back();
+    }
 
 
     public function AddNewProduct(Request $data)
@@ -63,6 +88,7 @@ class AdminController extends Controller
         $product->quantity=$data->input('quantity');
         $product->category=$data->input('category');
         $product->description=$data->input('description');
+        $product->keywords=$data->input('keywords');
         $product->picture=$data->file('file')->getClientOriginalName();
         $data->file('file')->move('uploads/products/', $product->picture);
         $product->save();
@@ -82,6 +108,7 @@ class AdminController extends Controller
         $product->type=$data->input('type');
         $product->quantity=$data->input('quantity');
         $product->category=$data->input('category');
+        $product->keywords=$data->input('keywords');
         $product->description=$data->input('description');
        if($data->file('file')!=null)
        {
@@ -115,6 +142,19 @@ class AdminController extends Controller
         $user->status=$status;
         $user->save();
         return redirect()->back()->with('success','Congrotulation user status updated successfully');
+    }
+    return redirect()-back();
+        
+    }
+
+    public function changeOrderStatus($status,$id)
+    {
+        if(session()->get('type')=='Admin')
+        {
+        $order=Order::find($id);
+        $order->status=$status;
+        $order->save();
+        return redirect()->back()->with('success','Congrotulation order status updated successfully');
     }
     return redirect()-back();
         

@@ -1,4 +1,4 @@
-<x-header/>
+<x-header title="Home" description="hello word" keywords="virat jaiswal,E-commerce, Best traning center"/>
 
     <!-- Hero Section Begin -->
     <section class="hero">
@@ -109,7 +109,7 @@
                 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix {{$item->type}}">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$item->picture)}}">
+                        <div class="product__item__pic set-bg" data-setbg="{{URL::asset('uploads/products/'.$item->picture)}}" alt="{{$item->keywords}}">
                             <span class="label">New</span>
                             <ul class="product__hover">
                                 <li><a href="#"><img src="img/icon/heart.png" alt=""></a></li>
